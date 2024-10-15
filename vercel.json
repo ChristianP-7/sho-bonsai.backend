@@ -2,8 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/ebay-data.js",
+      "src": "api/ebay.js",
       "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/ebay.js"
     }
   ]
 }
