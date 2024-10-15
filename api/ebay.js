@@ -30,7 +30,7 @@ app.get("/api/products/:categoryId", async (req, res) => {
     res.json(response.data);
   } catch (error) {
     console.error("Error al obtener productos de eBay:", error);
-    res.status(500).json({ error: "No se pudo obtener productos de eBay" });
+    res.status(500).json({ error: "No se pudo obtener productos de eBay." });
   }
 });
 
