@@ -22,7 +22,7 @@ app.get("/api/products/:categoryId", async (req, res) => {
     // Realizar la solicitud a la API de eBay
     const response = await axios.get(ebayApiUrl, {
       headers: {
-        Authorization: "Bearer " + process.env.EBAY_API_TOKEN,
+        Authorization: `Bearer ${token}`,
       },
     });
 
