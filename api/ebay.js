@@ -18,6 +18,7 @@ app.get("/api/products/:categoryId", async (req, res) => {
   try {
     // Construir la URL de la API de eBay con el ID de categoría
     const ebayApiUrl = `https://api.ebay.com/buy/browse/v1/item_summary/search?category_ids=${categoryId}`;
+    const token = process.env.EBAY_API_TOKEN;
 
     // Realizar la solicitud a la API de eBay
     const response = await axios.get(ebayApiUrl, {
