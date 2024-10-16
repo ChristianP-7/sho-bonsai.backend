@@ -17,6 +17,14 @@ app.use(
   })
 );
 
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "img-src 'self' https://i.ebayimg.com;" // Permitir imágenes desde eBay
+  );
+  next();
+});
+
 app.use(imageProxyRoutes); // Aquí se agregan las rutas del manejo de imagenes
 
 app.get("/api/products/:categoryId", async (req, res) => {
