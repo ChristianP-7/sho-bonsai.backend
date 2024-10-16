@@ -3,19 +3,21 @@ const cors = require("cors"); // Importar el paquete cors
 const { getAccessToken } = require("./auth");
 const axios = require("axios");
 const app = express();
+const imageProxyRoutes = require("./routes/imageProxyRoutes");
+
 const port = process.env.PORT || 3000;
 
-// Habilitar CORS para todas las solicitudes
+const allowedOrigin = process.env.ALLOWED_ORIGINS || "http://localhost:3000";
+
 app.use(
   cors({
-    origin: "https://sho-bonsai.vercel.app",
+    origin: allowedOrigin,
     methods: ["GET", "POST", "OPTIONS", "PUT", "DELETE"], // Opcional: Limita los métodos HTTP permitidos
     credentials: true, // Si necesitas que se envíen cookies o autenticación en las solicitudes
   })
 );
 
-// Agregar middleware para manejar solicitudes OPTIONS (preflight)
-app.options("*", cors()); // Esto maneja todas las solicitudes OPTIONS
+app.use(imageProxyRoutes); // Aquí se agregan las rutas del manejo de imagenes
 
 app.get("/api/products/:categoryId", async (req, res) => {
   try {
