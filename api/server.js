@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 app.use(
   cors({
     origin: "https://sho-bonsai.vercel.app",
-    methods: ["GET", "POST"], // Opcional: Limita los métodos HTTP permitidos
+    methods: ["GET", "POST", "OPTIONS", "PUT", "DELETE"], // Opcional: Limita los métodos HTTP permitidos
     credentials: true, // Si necesitas que se envíen cookies o autenticación en las solicitudes
   })
 );
