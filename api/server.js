@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000;
 // Habilitar CORS para todas las solicitudes
 app.use(
   cors({
-    origin: "https://sho-bonsai.vercel.app/",
+    origin: "https://sho-bonsai.vercel.app",
     methods: ["GET", "POST"], // Opcional: Limita los métodos HTTP permitidos
     credentials: true, // Si necesitas que se envíen cookies o autenticación en las solicitudes
   })
