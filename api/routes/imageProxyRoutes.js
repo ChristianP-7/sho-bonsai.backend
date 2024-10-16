@@ -16,9 +16,17 @@ router.get("/api/proxy-image", async (req, res) => {
     });
     const contentType = imageResponse.headers["content-type"];
 
-    res.setHeader("Access-Control-Allow-Origin", "*"); // Permite todas las solicitudes
+    res.setHeader(
+      "Access-Control-Allow-Origin",
+      "Access-Control-Allow-Referer",
+      "*"
+    ); // Permite todas las solicitudes
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.setHeader(
+      "Content-Security-Policy",
+      "default-src 'self'; img-src 'self' https://i.ebayimg.com;"
+    );
 
     res.set("Content-Type", contentType);
     res.send(imageResponse.data);
