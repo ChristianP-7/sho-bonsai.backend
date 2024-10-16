@@ -14,6 +14,9 @@ app.use(
   })
 );
 
+// Agregar middleware para manejar solicitudes OPTIONS (preflight)
+app.options("*", cors()); // Esto maneja todas las solicitudes OPTIONS
+
 app.get("/api/products/:categoryId", async (req, res) => {
   try {
     const { categoryId } = req.params;
