@@ -10,7 +10,7 @@ async function getAccessToken() {
       "https://api.ebay.com/identity/v1/oauth2/token",
       new URLSearchParams({
         grant_type: "client_credentials",
-        scope: "https://api.ebay.com/oauth/api_scope",
+        scope: "https://api.ebay.com/identity/v1/oauth2/token",
       }),
       {
         headers: {
