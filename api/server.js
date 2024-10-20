@@ -33,7 +33,7 @@ app.get("/api/products/:categoryId", async (req, res) => {
     const token = await getAccessToken();
 
     const ebayResponse = await axios.get(
-      `https://api.ebay.com/buy/browse/v1/item_summary/search?category_ids=${categoryId}`,
+      `https://api.ebay.com/buy/browse/v1/item_summary/search?q=bonsai&category_ids=${categoryId}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
